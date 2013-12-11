@@ -112,4 +112,32 @@ class couchHttpAdapterTest extends PHPUnit_Framework_TestCase
         $this->assertEquals ( $adapter->getDsn(), $dsnNew );
         $this->assertNotEquals ( $adapter->getDsn(), $dsnOld );
     }
+
+    public function testAdapterSetSessionCookie () {
+        $adapter = $this->aclient->getAdapter();
+
+        $sessionCookieFirst = "foo=bar;";
+        $sessionCookieSecond = "bar=baz;";
+
+        $adapter->setSessionCookie($sessionCookieFirst);
+        $this->assertEquals ( $adapter->getSessionCookie(), $sessionCookieFirst );
+
+        $adapter->setSessionCookie($sessionCookieSecond);
+        $this->assertNotEquals ( $adapter->getSessionCookie(), $sessionCookieFirst );
+        $this->assertEquals ( $adapter->getSessionCookie(), $sessionCookieSecond );
+    }
+
+    public function testAdapterSetOptions () {
+        $adapter = $this->aclient->getAdapter();
+
+        $optionsFirst = array('foo'=>'bar');
+        $optionsSecond = array('bar'=>'baz');
+
+        $adapter->setOptions($optionsFirst);
+        $this->assertEquals ( $adapter->getOptions(), $optionsFirst );
+
+        $adapter->setOptions($optionsSecond);
+        $this->assertNotEquals ( $adapter->getOptions(), $optionsFirst );
+        $this->assertEquals ( $adapter->getOptions(), $optionsSecond );
+    }
 }
