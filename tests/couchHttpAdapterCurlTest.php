@@ -34,7 +34,7 @@ class couchHttpAdapterCurlTest extends PHPUnit_Framework_TestCase
 
     public function testCustomCurlOptions () {
         $adapter = $this->adapter;
-        $adapterOptions(array('curl'=>array(CURLOPT_URL=>'http://www.example.com/')));
+        $adapterOptions=array('curl'=>array(CURLOPT_URL=>'http://www.example.com/'));
 
         $addCustomOptions = new \ReflectionMethod($adapter, 'addCustomOptions');
         $addCustomOptions->setAccessible(true);
