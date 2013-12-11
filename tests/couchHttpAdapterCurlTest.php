@@ -41,11 +41,11 @@ class couchHttpAdapterCurlTest extends PHPUnit_Framework_TestCase
 
         $curlHandle= curl_init();
 
-        $adapter->setOptions($addCustomOptions);
+        $adapter->setOptions($adapterOptions);
         $addCustomOptions->invoke($adapter,$curlHandle);
 
         $info = curl_getinfo($curlHandle);
-        $this->assertEquals($info['url'],$adapterOptions['curl'][CURLOPT_URL]);
+        $this->assertEquals($adapterOptions['curl'][CURLOPT_URL],$info['url']);
 
     }
 }
