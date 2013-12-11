@@ -23,8 +23,8 @@ class couchHttpAdapterCurl extends couchHttpAdapterAbstract implements couchHttp
 		} else {
 			$http_headers[] = 'Content-Type: application/json';
 		}
-		if ( $this->sessioncookie ) {
-			$http_headers[] = "Cookie: ".$this->sessioncookie;
+		if ( $this->hasSessionCookie() ) {
+			$http_headers[] = "Cookie: ".$this->getSessionCookie();
 		}
 		curl_setopt($http, CURLOPT_CUSTOMREQUEST, $method);
 
@@ -110,8 +110,8 @@ class couchHttpAdapterCurl extends couchHttpAdapterAbstract implements couchHttp
             'Expect: ',
             'Content-Length: '.strlen($data)
         ) ;
-        if ( $this->sessioncookie ) {
-            $http_headers[] = "Cookie: ".$this->sessioncookie;
+        if ( $this->hasSessionCookie() ) {
+            $http_headers[] = "Cookie: ".$this->getSessionCookie();
         }
         curl_setopt($http, CURLOPT_CUSTOMREQUEST, 'PUT');
         curl_setopt($http, CURLOPT_HTTPHEADER,$http_headers);
@@ -157,8 +157,8 @@ class couchHttpAdapterCurl extends couchHttpAdapterAbstract implements couchHttp
             'Content-Type: '.$content_type,
             'Expect: '
         );
-        if ( $this->sessioncookie ) {
-            $http_headers[] = "Cookie: ".$this->sessioncookie;
+        if ( $this->hasSessionCookie() ) {
+            $http_headers[] = "Cookie: ".$this->getSessionCookie();
         }
         curl_setopt($http, CURLOPT_PUT, 1);
         curl_setopt($http, CURLOPT_HTTPHEADER,$http_headers);

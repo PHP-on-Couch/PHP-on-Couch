@@ -132,8 +132,8 @@ class couchHttpAdapterSocket extends couchHttpAdapterAbstract implements couchHt
         if ( $this->dsn_part('user') && $this->dsn_part('pass') ) {
             $req .= 'Authorization: Basic '.base64_encode($this->dsn_part('user').':'.
                     $this->dsn_part('pass'))."\r\n";
-        } elseif ( $this->sessioncookie ) {
-            $req .= "Cookie: ".$this->sessioncookie."\r\n";
+        } elseif ( $this->hasSessionCookie() ) {
+            $req .= "Cookie: ".$this->getSessionCookie()."\r\n";
         }
         $req.="Accept: application/json,text/html,text/plain,*/*\r\n";
 

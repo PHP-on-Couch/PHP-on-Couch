@@ -119,12 +119,21 @@ class couchHttpAdapterTest extends PHPUnit_Framework_TestCase
         $sessionCookieFirst = "foo=bar;";
         $sessionCookieSecond = "bar=baz;";
 
+        $this->assertFalse( $adapter->hasSessionCookie() );
+
         $adapter->setSessionCookie($sessionCookieFirst);
+        $this->assertTrue( $adapter->hasSessionCookie() );
         $this->assertEquals ( $adapter->getSessionCookie(), $sessionCookieFirst );
 
+
         $adapter->setSessionCookie($sessionCookieSecond);
+        $this->assertTrue( $adapter->hasSessionCookie() );
         $this->assertNotEquals ( $adapter->getSessionCookie(), $sessionCookieFirst );
         $this->assertEquals ( $adapter->getSessionCookie(), $sessionCookieSecond );
+
+
+        $adapter->setSessionCookie(null);
+        $this->assertFalse( $adapter->hasSessionCookie() );
     }
 
     public function testAdapterSetOptions () {

@@ -52,6 +52,15 @@ abstract class couchHttpAdapterAbstract implements couchHttpAdapterInterface {
         return $this->sessioncookie;
     }
 
+    /**
+     * get the session cookie
+     *
+     * @return string cookie
+     */
+    public function hasSessionCookie () {
+        return (bool) $this->sessioncookie;
+    }
+
     abstract public function query ( $method, $url, $parameters = array() , $data = NULL, $content_type = NULL );
     abstract public function storeAsFile($url,$data,$content_type);
     abstract public function storeFile($url,$file,$content_type);
