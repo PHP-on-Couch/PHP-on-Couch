@@ -48,4 +48,27 @@ class couchHttpAdapterCurlTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($adapterOptions['curl'][CURLOPT_URL],$info['url']);
 
     }
+
+    public function testBuildRequestSendCookie () {
+        $sessionCookie = "foo=bar";
+
+
+        $adapter = $this->adapter;
+        $adapter->setSessionCookie($sessionCookie);
+
+        $buildRequest = new \ReflectionMethod($adapter, 'buildRequest');
+        $buildRequest->setAccessible(true);
+
+        $curlHandle = $buildRequest->invoke($adapter,array(
+            'COPY',
+            'localhost:8080/_files/return_header.php',
+            array('foo'=>'bar')
+        ));
+
+        $header= json_decode(curl_exec($curlHandle));
+
+        $this->assertArrayHasKey('Cookie', $header);
+        $this->assertEquals($sessionCookie, $header['Cookie']);
+        $this->assertEquals($adapter->getSessionCookie(), $header['Cookie']);
+    }
 }
