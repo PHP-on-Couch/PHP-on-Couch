@@ -59,7 +59,7 @@ class couchHttpAdapterCurlTest extends PHPUnit_Framework_TestCase
         $buildRequest = new \ReflectionMethod($adapter, 'buildRequest');
         $buildRequest->setAccessible(true);
 
-        $curlHandle = $buildRequest->invoke($adapter,array(
+        $curlHandle = $buildRequest->invokeArgs($adapter,array(
             'COPY',
             'localhost:8080/_files/return_header.php',
             array('foo'=>'bar')
