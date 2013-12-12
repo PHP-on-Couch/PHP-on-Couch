@@ -9,6 +9,8 @@ services:
 
 before_script:
  - php tests/_files/initDefaultDatabase.php
+ - sh -c "if [ '$TRAVIS_PHP_VERSION' != '5.3' ]; then echo 'starting PHP server on port 8080'; php -S localhost:8080 -d max_execution_time=10 -t tests/ & fi"
+
 
 script:
  - ant travis -keep-going
