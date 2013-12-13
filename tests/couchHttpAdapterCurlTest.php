@@ -62,7 +62,8 @@ class couchHttpAdapterCurlTest extends PHPUnit_Framework_TestCase
         $curlHandle = $buildRequest->invokeArgs($adapter,array(
             'COPY',
             'localhost:8080/_files/return_header.php',
-            array('foo'=>'bar')
+            array('foo'=>'bar'),
+            null
         ));
 
         $header= json_decode(curl_exec($curlHandle));
