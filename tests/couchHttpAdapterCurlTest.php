@@ -66,7 +66,8 @@ class couchHttpAdapterCurlTest extends PHPUnit_Framework_TestCase
             null
         ));
 
-        $header= json_decode(curl_exec($curlHandle));
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        $header= json_decode(curl_exec($curlHandle),true);
 
         $this->assertArrayHasKey('Cookie', $header);
         $this->assertEquals($sessionCookie, $header['Cookie']);
