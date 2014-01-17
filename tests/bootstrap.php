@@ -8,6 +8,11 @@ $rootDir        = realpath(dirname(__DIR__));
 $coreLibraryDir = "$rootDir/lib";
 $coreTestsDir   = "$rootDir/tests";
 
+chdir($rootDir);
+
+
+
+
 /*
  * Prepend the Zend Framework library/ and tests/ directories to the
 * include_path. This allows the tests to run out of the box and helps prevent
