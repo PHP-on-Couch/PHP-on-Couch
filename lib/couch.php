@@ -163,6 +163,8 @@ class couch {
 	* body : the response body (if any). If CouchDB server response Content-Type is application/json
 	*        the body will by json_decode()d
 	*
+	* @todo support follow url header
+	*
 	* @static
 	* @param string $raw_data data sent back by the server
 	* @param boolean $json_as_array is true, the json response will be decoded as an array. Is false, it's decoded as an object
