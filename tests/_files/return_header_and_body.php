@@ -27,4 +27,8 @@ if (!function_exists('apache_request_headers')) {
     }
 }
 
-echo json_encode(apache_request_headers());
+$return = array(
+    'headers'=> apache_request_headers(),
+    'body'=> @file_get_contents('php://input'),
+);
+echo json_encode($return);
