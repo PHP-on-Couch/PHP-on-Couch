@@ -18,4 +18,11 @@
     <logging>
         <log type="coverage-text" target="php://stdout"/>
     </logging>
+    
+  <php>
+    <const name="WEB_SERVER_HOST" value="localhost" />
+    <const name="WEB_SERVER_PORT" value="8080" />
+    <const name="WEB_SERVER_DOCROOT" value="./tests/" />
+  </php>
+    
 </phpunit>

@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 class couchClientTest extends PHPUnit_Framework_TestCase
 {
 
-	private $couch_server = "http://localhost:5984/";
+	private $couch_server = "http://127.0.0.1:5984/";
 	private $config;
 
     public function setUp()
