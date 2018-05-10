@@ -18,7 +18,13 @@
 
 ## Introduction
 
-[PHP On Couch](http://github.com/PHP-on-Couch/PHP-on-Couch/) tries to provide an easy way to work with your [CouchDB](http://couchdb.apache.org) [documents](http://docs.couchdb.org/) with [PHP](http://php.net). 
+[PHP On Couch](http://github.com/PHP-on-Couch/PHP-on-Couch/) provides an easy way to work with your [CouchDB](http://couchdb.apache.org) [documents](http://docs.couchdb.org/) with [PHP](http://php.net). 
+
+It has been testing against PHP 5.6, 7.0, 7.1 and 7.2
+
+The latest version is compatible with CouchDB 2.0.0 and higher.
+
+For 1.6.1 support, you have to use the `1.6.1` branch. This branch is no longer supported.
 
 ## Recent changes
 
